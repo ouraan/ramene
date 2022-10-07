@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ramene/constants.dart';
-import 'package:ramene/screens/home.dart';
+import 'package:ramene/screens/login.dart';
 
 class Profile extends StatelessWidget{
   @override
@@ -92,7 +92,9 @@ class Profile extends StatelessWidget{
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: (){}, 
+                onPressed: (){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Login(),));
+                }, 
                 child: Text("LOG OUT",
                   style: TextStyle(
                     fontFamily: 'Poppins Bold',

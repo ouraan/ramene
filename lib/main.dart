@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:ramene/screens/home.dart';
 import 'package:ramene/screens/landing.dart';
-import 'package:ramene/screens/register.dart';
+import 'package:ramene/shared_pref.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async{
+  runApp(MyApp());
+  await SharedPref.init();
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

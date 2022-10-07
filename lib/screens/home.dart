@@ -4,7 +4,7 @@ import 'package:ramene/models/ramens.dart';
 import 'package:ramene/screens/chat.dart';
 import 'package:ramene/screens/order.dart';
 import 'package:ramene/screens/profile.dart';
-
+import 'package:ramene/shared_pref.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -25,8 +25,13 @@ class _HomeState extends State<Home> {
       currentIndex = index;
     });
   }
+  
   @override
   Widget build(BuildContext context){
+    String isDarkmode = SharedPref.pref?.getString('isDarkMode') as String;
+    print(isDarkmode);
+
+
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
