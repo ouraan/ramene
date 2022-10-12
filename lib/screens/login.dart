@@ -4,9 +4,9 @@ import 'package:ramene/constants.dart';
 import 'package:ramene/screens/home.dart';
 import 'package:ramene/screens/register.dart';
 
-class Login extends StatelessWidget{
+class Login extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25, vertical: 23),
@@ -16,7 +16,8 @@ class Login extends StatelessWidget{
               alignment: Alignment.topLeft,
               child: Column(
                 children: <Widget>[
-                  Text("Welcome Back",
+                  Text(
+                    "Welcome Back",
                     style: TextStyle(
                       color: semiBlack,
                       fontFamily: 'Poppins Bold',
@@ -26,11 +27,11 @@ class Login extends StatelessWidget{
                   ),
                   SizedBox(height: 3),
                   Text("Login to yout account",
-                    style: TextStyle(
-                      color: lightGrey,
-                      fontSize: 17,
-                      fontFamily: 'Poppins Light',
-                  )),
+                      style: TextStyle(
+                        color: lightGrey,
+                        fontSize: 17,
+                        fontFamily: 'Poppins Light',
+                      )),
                 ],
               ),
             ),
@@ -47,7 +48,8 @@ class Login extends StatelessWidget{
                 ),
                 labelText: "Email Address",
                 hintText: "Email Address",
-                contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                 hintStyle: TextStyle(
                   fontFamily: 'Poppins Light',
                   fontSize: 16,
@@ -67,7 +69,8 @@ class Login extends StatelessWidget{
                 ),
                 labelText: "Password",
                 hintText: "Password",
-                contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                 hintStyle: TextStyle(
                   fontFamily: 'Poppins Light',
                   fontSize: 16,
@@ -77,7 +80,8 @@ class Login extends StatelessWidget{
             SizedBox(height: 15),
             Align(
               alignment: Alignment.topLeft,
-              child: Text("Forgot password?",
+              child: Text(
+                "Forgot password?",
                 style: TextStyle(
                   color: orangeAccent,
                   fontSize: 16,
@@ -87,42 +91,44 @@ class Login extends StatelessWidget{
             ),
             Spacer(),
             ElevatedButton(
-              onPressed: (){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Home(),));
-              }, 
+              onPressed: () {
+                // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Home(),));
+              },
               child: Text("SIGN IN",
-                style: TextStyle(
-                fontFamily: 'Poppins Bold',
-                fontSize: 18,
-                )),
+                  style: TextStyle(
+                    fontFamily: 'Poppins Bold',
+                    fontSize: 18,
+                  )),
               style: ElevatedButton.styleFrom(
-                primary: orangeAccent,
-                minimumSize: const Size.fromHeight(55),
-                shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              )),
+                  primary: orangeAccent,
+                  minimumSize: const Size.fromHeight(55),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  )),
             ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Don't have an account?",
-                  style: TextStyle(
-                  fontFamily: 'Poppins Light',
-                  fontSize: 16,
-                  color: lightGrey,
-                )),
+                    style: TextStyle(
+                      fontFamily: 'Poppins Light',
+                      fontSize: 16,
+                      color: lightGrey,
+                    )),
                 SizedBox(width: 7),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Register(),));
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => Register(),
+                    ));
                   },
                   child: Text("Sign up",
-                    style: TextStyle(
-                    fontFamily: 'Poppins Light',
-                    fontSize: 16,
-                    color: orangeAccent,
-                  )),
+                      style: TextStyle(
+                        fontFamily: 'Poppins Light',
+                        fontSize: 16,
+                        color: orangeAccent,
+                      )),
                 ),
               ],
             ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:ramene/constants.dart';
 import 'package:ramene/screens/login.dart';
 import 'package:ramene/screens/register.dart';
-import 'package:ramene/shared_pref.dart';
 
 class Landing extends StatefulWidget{
   @override
@@ -12,16 +11,7 @@ class Landing extends StatefulWidget{
 
 class _LandingState extends State<Landing> {
   @override
-  void initState() {
-    super.initState();
-     }
-
-  @override
   Widget build(BuildContext context){
-    // // Obtain shared preferences.
-    SharedPref.pref?.setString('isDarkMode', 'Ya ini seharusnya darkmode');
-    
-
     return Scaffold(
       body: SizedBox(
         width: double.infinity,

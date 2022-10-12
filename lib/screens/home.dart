@@ -6,7 +6,10 @@ import 'package:ramene/screens/order.dart';
 import 'package:ramene/screens/profile.dart';
 import 'package:ramene/shared_pref.dart';
 
-class Home extends StatefulWidget{
+class Home extends StatefulWidget {
+  Function setTheme;
+  Home({Key? key, required this.setTheme}) : super(key: key);
+
   @override
   State<Home> createState() => _HomeState();
 }
@@ -20,27 +23,44 @@ class _HomeState extends State<Home> {
   ];
 
   int currentIndex = 0;
-  void onTap(int index){
+  void onTap(int index) {
     setState(() {
       currentIndex = index;
     });
   }
-  
+
+  bool isDarkmode = SharedPref.pref?.getBool('isDarkmode') ?? false;
   @override
-  Widget build(BuildContext context){
-    String isDarkmode = SharedPref.pref?.getString('isDarkMode') as String;
-    print(isDarkmode);
-
-
+  Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: orangeAccent,
+        leading: GestureDetector(
+          onTap: () {
+            isDarkmode = !isDarkmode;
+            widget.setTheme(isDarkmode);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.light_mode,
+            ),
+          ),
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
         currentIndex: currentIndex,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat_outlined), label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_basket_outlined), label: 'Order'),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Profile'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.chat_outlined), label: 'Chat'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_basket_outlined), label: 'Order'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline), label: 'Profile'),
         ],
         selectedItemColor: orangeAccent,
         unselectedItemColor: lightGrey,
@@ -64,7 +84,7 @@ class ContainerHome extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 40),
+          SizedBox(height: 30),
           TextField(
             controller: null,
             decoration: InputDecoration(
@@ -83,7 +103,8 @@ class ContainerHome extends StatelessWidget {
           SizedBox(height: 20),
           Align(
             alignment: Alignment.centerLeft,
-            child: Text("Top Menu",
+            child: Text(
+              "Top Menu",
               style: TextStyle(
                 fontFamily: "Poppins Bold",
                 fontSize: 17,
@@ -126,12 +147,11 @@ class ItemCard extends StatelessWidget {
             // height: 170,
             // width: 160,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: NetworkImage(ramen.image),
-              )
-            ),
+                borderRadius: BorderRadius.circular(16),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(ramen.image),
+                )),
           ),
         ),
         SizedBox(height: 10),
