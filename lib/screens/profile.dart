@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:ramene/constants.dart';
 import 'package:ramene/screens/login.dart';
 
-class Profile extends StatelessWidget{
+class Profile extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -21,7 +21,8 @@ class Profile extends StatelessWidget{
               ),
             ),
             SizedBox(height: 25),
-            Text("Rizha Alfianita",
+            Text(
+              "Rizha Alfianita",
               style: TextStyle(
                 fontFamily: "Poppins Bold",
                 fontSize: 22,
@@ -29,7 +30,8 @@ class Profile extends StatelessWidget{
               ),
             ),
             SizedBox(height: 7),
-            Text("089686416396",
+            Text(
+              "089686416396",
               style: TextStyle(
                 fontFamily: "Poppins Light",
                 fontSize: 18,
@@ -43,7 +45,8 @@ class Profile extends StatelessWidget{
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Change password",
+                  Text(
+                    "Change password",
                     style: TextStyle(
                       fontFamily: "Poppins Light",
                       color: lightGrey,
@@ -65,7 +68,8 @@ class Profile extends StatelessWidget{
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Setting",
+                  Text(
+                    "Setting",
                     style: TextStyle(
                       fontFamily: "Poppins Light",
                       color: lightGrey,
@@ -92,10 +96,13 @@ class Profile extends StatelessWidget{
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: (){
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Login(),));
-                }, 
-                child: Text("LOG OUT",
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => Login(),
+                  ));
+                },
+                child: Text(
+                  "LOG OUT",
                   style: TextStyle(
                     fontFamily: 'Poppins Bold',
                     fontSize: 18,

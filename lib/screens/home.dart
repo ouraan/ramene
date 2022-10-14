@@ -8,7 +8,10 @@ import 'package:ramene/shared_pref.dart';
 
 class Home extends StatefulWidget {
   Function setTheme;
-  Home({Key? key, required this.setTheme}) : super(key: key);
+  final String name;
+
+  Home({Key? key, required this.setTheme, required this.name})
+      : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -16,7 +19,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List pages = [
-    const ContainerHome(),
+    ContainerHome(),
     Chat(),
     Order(),
     Profile(),
@@ -36,18 +39,38 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: orangeAccent,
-        leading: GestureDetector(
-          onTap: () {
-            isDarkmode = !isDarkmode;
-            widget.setTheme(isDarkmode);
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+        actions: [
+          GestureDetector(
             child: Icon(
-              Icons.light_mode,
+              Icons.person,
+              color: Colors.white,
+            ),
+            onTap: (){
+              final snackBar = SnackBar(
+                backgroundColor: orangeAccent,
+                content: Text(
+                  'Hi, ' + widget.name,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                )
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+          ),
+          GestureDetector(
+            onTap: () {
+              isDarkmode = !isDarkmode;
+              widget.setTheme(isDarkmode);
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Icon(
+                Icons.light_mode,
+              ),
             ),
           ),
-        ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,

@@ -3,8 +3,30 @@ import 'package:flutter/material.dart';
 import 'package:ramene/constants.dart';
 import 'package:ramene/screens/home.dart';
 import 'package:ramene/screens/register.dart';
+import 'package:ramene/shared_pref.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final String email = "rizhaalfianita1412@gmail.com";
+  final String password = "kaito1412";
+  final String nama = "Rizha Alfianita";
+
+  TextEditingController controllerEmail = TextEditingController();
+  TextEditingController controllerPass = TextEditingController();
+
+  ThemeData themeData = ThemeData.light();
+
+  void setTheme(bool isDarkmode) {
+    setState(() {
+      themeData = (isDarkmode) ? ThemeData.dark() : ThemeData.light();
+      SharedPref.pref?.setBool('isDarkmode', isDarkmode);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +59,7 @@ class Login extends StatelessWidget {
             ),
             SizedBox(height: 25),
             TextField(
-              controller: null,
+              controller: controllerEmail,
               style: TextStyle(
                 fontFamily: 'Poppins Light',
                 fontSize: 16,
@@ -58,7 +80,7 @@ class Login extends StatelessWidget {
             ),
             SizedBox(height: 18),
             TextField(
-              controller: null,
+              controller: controllerPass,
               style: TextStyle(
                 fontFamily: 'Poppins Light',
                 fontSize: 16,
@@ -92,7 +114,24 @@ class Login extends StatelessWidget {
             Spacer(),
             ElevatedButton(
               onPressed: () {
-                // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Home(),));
+                if (controllerEmail.text == email &&
+                    controllerPass.text == password) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => Home(setTheme: setTheme, name: nama),
+                  ));
+                } else {
+                  final snackBar = SnackBar(
+                    backgroundColor: Colors.redAccent,
+                    content: Text(
+                      'Email address or password is invalid',
+                      style: TextStyle(
+                        fontFamily: 'Poppins-Regular',
+                        color: Colors.white,
+                      ),
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                }
               },
               child: Text("SIGN IN",
                   style: TextStyle(

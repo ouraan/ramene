@@ -38,7 +38,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: Home(setTheme: setTheme),
+      debugShowCheckedModeBanner: false,
+      home: Landing(),
     );
   }
 }
