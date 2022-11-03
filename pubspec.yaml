@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.15
   provider: ^6.0.3
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:
@@ -80,12 +81,19 @@ flutter:
   fonts:
     - family: Poppins Bold
       fonts:
-        - asset: assets/fonts/poppins/Poppins-Regular.ttf
         - asset: assets/fonts/poppins/Poppins-Bold.ttf
           weight: 600
     - family: Poppins Light
       fonts:
         - asset: assets/fonts/poppins/Poppins-Light.ttf
+          weight: 200
+    - family: Poppins SemiBold
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+          weight: 400
+    - family: Poppins Regular
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
           weight: 300
   #         style: italic
   #   - family: Trajan Pro

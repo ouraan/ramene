@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:ramene/constants.dart';
 import 'package:ramene/models/ramens.dart';
 import 'package:ramene/screens/chat.dart';
+import 'package:ramene/screens/elements/drawer_header.dart';
+import 'package:ramene/screens/login.dart';
 import 'package:ramene/screens/order.dart';
 import 'package:ramene/screens/profile.dart';
 import 'package:ramene/shared_pref.dart';
 
 class Home extends StatefulWidget {
-  Function setTheme;
+  // Function setTheme;
   final String name;
 
-  Home({Key? key, required this.setTheme, required this.name})
-      : super(key: key);
+  Home({Key? key, required this.name}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -32,36 +33,47 @@ class _HomeState extends State<Home> {
     });
   }
 
-  bool isDarkmode = SharedPref.pref?.getBool('isDarkmode') ?? false;
+  var currentPage = DrawerSections.dashboard;
+
+  // bool isDarkmode = SharedPref.pref?.getBool('isDarkmode') ?? false;
   @override
   Widget build(BuildContext context) {
+    var container;
+    if (currentPage == DrawerSections.dashboard) {
+      container = ContainerHome();
+    } else if (currentPage == DrawerSections.chat) {
+      container = Chat();
+    } else if (currentPage == DrawerSections.order) {
+      container = Order();
+    } else if (currentPage == DrawerSections.profile) {
+      container = Profile();
+    }
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: orangeAccent,
         actions: [
-          GestureDetector(
-            child: Icon(
-              Icons.person,
-              color: Colors.white,
-            ),
-            onTap: (){
-              final snackBar = SnackBar(
-                backgroundColor: orangeAccent,
-                content: Text(
-                  'Hi, ' + widget.name,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                )
-              );
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            },
-          ),
+          // GestureDetector(
+          //   child: Icon(
+          //     Icons.person,
+          //     color: Colors.white,
+          //   ),
+          //   onTap: () {
+          //     final snackBar = SnackBar(
+          //         backgroundColor: orangeAccent,
+          //         content: Text(
+          //           'Hi, ' + widget.name,
+          //           style: TextStyle(
+          //             color: Colors.white,
+          //           ),
+          //         ));
+          //     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          //   },
+          // ),
           GestureDetector(
             onTap: () {
-              isDarkmode = !isDarkmode;
-              widget.setTheme(isDarkmode);
+              // isDarkmode = !isDarkmode;
+              // widget.setTheme(isDarkmode);
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -91,10 +103,90 @@ class _HomeState extends State<Home> {
         showUnselectedLabels: false,
         elevation: 0,
       ),
-      body: pages.elementAt(currentIndex),
+      body: container,
+      drawer: Drawer(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: [
+                MyDrawerHeader(),
+                MyDrawerList(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget MyDrawerList() {
+    return Container(
+      padding: EdgeInsets.only(top: 15),
+      child: Column(
+        children: [
+          menuItem(1, "Dashboard", Icons.dashboard_outlined,
+              currentPage == DrawerSections.dashboard ? true : false),
+          menuItem(2, "Chat", Icons.chat_outlined,
+              currentPage == DrawerSections.chat ? true : false),
+          menuItem(3, "Order", Icons.shopping_basket_outlined,
+              currentPage == DrawerSections.order ? true : false),
+          menuItem(4, "Profile", Icons.person_outline,
+              currentPage == DrawerSections.profile ? true : false),
+        ],
+      ),
+    );
+  }
+
+  Widget menuItem(int id, String title, IconData icon, bool selected) {
+    return Material(
+      color: selected ? lightOrange : Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          Navigator.pop(context);
+          setState(() {
+            if (id == 1) {
+              currentPage = DrawerSections.dashboard;
+            } else if (id == 2) {
+              currentPage = DrawerSections.chat;
+            } else if (id == 3) {
+              currentPage = DrawerSections.order;
+            } else if (id == 4) {
+              currentPage = DrawerSections.profile;
+            }
+          });
+        },
+        child: Padding(
+          padding: EdgeInsets.all(15),
+          child: Row(
+            children: [
+              Expanded(
+                child: Icon(
+                  icon,
+                  size: 20,
+                  color: darkGrey,
+                ),
+              ),
+              SizedBox(width: 10,),
+              Expanded(
+                flex: 4,
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontFamily: 'Poppins Regular',
+                    color: darkGrey,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
+
+enum DrawerSections { dashboard, order, chat, profile }
 
 class ContainerHome extends StatelessWidget {
   const ContainerHome({
@@ -129,7 +221,7 @@ class ContainerHome extends StatelessWidget {
             child: Text(
               "Top Menu",
               style: TextStyle(
-                fontFamily: "Poppins Bold",
+                fontFamily: "Poppins SemiBold",
                 fontSize: 17,
                 color: darkGrey,
               ),
@@ -190,7 +282,7 @@ class ItemCard extends StatelessWidget {
           ramen.price.toString(),
           style: TextStyle(
             color: darkGrey,
-            fontFamily: 'Poppins Bold',
+            fontFamily: 'Poppins Regular',
           ),
         ),
       ],

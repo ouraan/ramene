@@ -24,7 +24,7 @@ class Profile extends StatelessWidget {
             Text(
               "Rizha Alfianita",
               style: TextStyle(
-                fontFamily: "Poppins Bold",
+                fontFamily: "Poppins SemiBold",
                 fontSize: 22,
                 color: darkGrey,
               ),
@@ -104,7 +104,7 @@ class Profile extends StatelessWidget {
                 child: Text(
                   "LOG OUT",
                   style: TextStyle(
-                    fontFamily: 'Poppins Bold',
+                    fontFamily: 'Poppins Regular',
                     fontSize: 18,
                   ),
                 ),

@@ -18,14 +18,14 @@ class _LoginState extends State<Login> {
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerPass = TextEditingController();
 
-  ThemeData themeData = ThemeData.light();
+  // ThemeData themeData = ThemeData.light();
 
-  void setTheme(bool isDarkmode) {
-    setState(() {
-      themeData = (isDarkmode) ? ThemeData.dark() : ThemeData.light();
-      SharedPref.pref?.setBool('isDarkmode', isDarkmode);
-    });
-  }
+  // void setTheme(bool isDarkmode) {
+  //   setState(() {
+  //     themeData = (isDarkmode) ? ThemeData.dark() : ThemeData.light();
+  //     SharedPref.pref?.setBool('isDarkmode', isDarkmode);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
                     "Welcome Back",
                     style: TextStyle(
                       color: semiBlack,
-                      fontFamily: 'Poppins Bold',
+                      fontFamily: 'Poppins SemiBold',
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                     ),
@@ -117,7 +117,7 @@ class _LoginState extends State<Login> {
                 if (controllerEmail.text == email &&
                     controllerPass.text == password) {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => Home(setTheme: setTheme, name: nama),
+                    builder: (context) => Home(name: nama),
                   ));
                 } else {
                   final snackBar = SnackBar(
@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
               },
               child: Text("SIGN IN",
                   style: TextStyle(
-                    fontFamily: 'Poppins Bold',
+                    fontFamily: 'Poppins SemiBold',
                     fontSize: 18,
                   )),
               style: ElevatedButton.styleFrom(

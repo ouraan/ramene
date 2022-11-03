@@ -16,7 +16,7 @@ class Register extends StatelessWidget{
               child: Text("Get Your Ramen",
                 style: TextStyle(
                   color: semiBlack,
-                  fontFamily: 'Poppins Bold',
+                  fontFamily: 'Poppins SemiBold',
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
                 ),
@@ -80,7 +80,7 @@ class Register extends StatelessWidget{
               }, 
               child: Text("SIGN UP",
                 style: TextStyle(
-                fontFamily: 'Poppins Bold',
+                fontFamily: 'Poppins SemiBold',
                 fontSize: 18,
                 )),
               style: ElevatedButton.styleFrom(

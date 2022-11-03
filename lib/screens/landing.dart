@@ -25,7 +25,7 @@ class _LandingState extends State<Landing> {
                   SizedBox(height: 5),
                   Text("RAMENE",
                       style: TextStyle(
-                        fontFamily: 'Poppins Bold',
+                        fontFamily: 'Poppins SemiBold',
                         fontSize: 16,
                         color: darkGrey,
                       )),
@@ -34,7 +34,7 @@ class _LandingState extends State<Landing> {
                   SizedBox(height: 25),
                   Text("All your favorite ramen",
                       style: TextStyle(
-                        fontFamily: 'Poppins Bold',
+                        fontFamily: 'Poppins Regular',
                         fontWeight: FontWeight.w600,
                         fontSize: 25,
                         color: semiBlack,
@@ -69,7 +69,7 @@ class _LandingState extends State<Landing> {
                           },
                           child: Text("SIGN IN",
                               style: TextStyle(
-                                fontFamily: 'Poppins Bold',
+                                fontFamily: 'Poppins SemiBold',
                                 fontSize: 18,
                               )),
                         ),
@@ -91,7 +91,7 @@ class _LandingState extends State<Landing> {
                           },
                           child: Text("SIGN UP",
                               style: TextStyle(
-                                fontFamily: 'Poppins Bold',
+                                fontFamily: 'Poppins SemiBold',
                                 fontSize: 18,
                                 color: orangeAccent,
                               )),

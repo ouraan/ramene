@@ -1,0 +1,53 @@
+{
+    "data": [
+        {
+            "description": "Delicious Lava Ramene with Spicy taste",
+            "img_url": "https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            "price": 17000,
+            "product_name": "Hot Lava Ramene"
+        },
+        {
+            "description": "Delicious Original Ramene with Spicy taste",
+            "img_url": "https://images.unsplash.com/photo-1614649672633-cb78b332a9a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            "price": 13000,
+            "product_name": "Original Ramene"
+        },
+        {
+            "description": "Delicious Chicken Ramene Crispy",
+            "img_url": "https://images.unsplash.com/photo-1602273660127-a0000560a4c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            "price": 25000,
+            "product_name": "Chicken Ramene Crispy"
+        },
+        {
+            "description": "Delicious Vegan Ramene with variatif vegetables",
+            "img_url": "https://images.unsplash.com/photo-1617421753170-46511a8d73fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            "price": 15000,
+            "product_name": "Vegan Ramene"
+        },
+        {
+            "description": "Delicious Egg Cow Eye Ramene with Cow taste",
+            "img_url": "https://images.unsplash.com/photo-1600326145359-3a44909d1a39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            "price": 16000,
+            "product_name": "Egg Cow Eye Ramene"
+        },
+        {
+            "description": "Delicious Warmindo Ramene collaboration indomii n ramen",
+            "img_url": "https://images.unsplash.com/photo-1627900440398-5db32dba8db1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            "price": 49900,
+            "product_name": "Warmindo Ramene"
+        },
+        {
+            "description": "Delicious Warmindo Ramene collaboration indomii n ramen",
+            "img_url": "https://images.unsplash.com/flagged/photo-1556742524-750f2ab99913?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            "price": 32000,
+            "product_name": "Nice Ramene"
+        },
+        {
+            "description": "Delicious Iblis Ramene Ramene collaboration indomii n ramen",
+            "img_url": "https://images.unsplash.com/photo-1635685296916-95acaf58471f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
+            "price": 22000,
+            "product_name": "Iblis Ramene"
+        }
+    ],
+    "message": "Retrieved data is successfully"
+}

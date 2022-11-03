@@ -12,7 +12,7 @@ class Order extends StatelessWidget {
       body: Center(
         child: Text("ORDER",
           style: TextStyle(
-            fontFamily: "Poppins Bold",
+            fontFamily: "Poppins Regular",
             color: darkGrey,
             fontSize: 22,
           ),

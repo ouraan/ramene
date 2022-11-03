@@ -12,7 +12,7 @@ class Chat extends StatelessWidget {
       body: Center(
         child: Text("CHAT",
           style: TextStyle(
-            fontFamily: "Poppins Bold",
+            fontFamily: "Poppins Regular",
             color: darkGrey,
             fontSize: 22,
           ),
